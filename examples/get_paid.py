@@ -1,9 +1,11 @@
 import moncash
 
-gateway = moncash.MoncashGateway(
+gateway = moncash.MonCashGateway(
     client_id="12",
-    secret_key="1aws34fggt"
+    secret_key="1aws34fggt",
+    environment=moncash.Production
 )
+
 
 payement = gateway.create_payement(
     amount="1000",
