@@ -1,3 +1,0 @@
-
-class Http(object):
-    pass

@@ -13,9 +13,10 @@ the MonCash API for applications written in Python
 Basic usage:
 
     >>> import moncash
-    >>> gateway = moncash.Moncash(client_id='', client_secret='')
-    >>> payement = gateway.payement
-    >>> payement.create(amount=500, to='+50948438330')
+    >>> gateway = moncash.MoncashGateway(client_id='', client_secret='', env='')
+    >>> get_paid = gateway.get_paid(amount=500, order_id=205)
+    >>> get_paid.url
+
 
 
 :copyright: (c) 2020 by Madsen Servius.
@@ -23,5 +24,6 @@ Basic usage:
 """
 
 
-from .gateway import Moncash 
+from .gateway import MoncashGateway
 from .configuration import Configuration 
+from .environment import Environment

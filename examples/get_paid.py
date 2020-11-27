@@ -3,7 +3,7 @@ import moncash
 gateway = moncash.MonCashGateway(
     client_id="12",
     secret_key="1aws34fggt",
-    environment=moncash.Production
+    environment=moncash.environment.Sandbox
 )
 
 
@@ -14,5 +14,5 @@ payement = gateway.create_payement(
 
 get_paid = payement.url
 
-# TODO:  redirect the user to the payement url 
+# TODO:  in your app redirect the user to the payement url to get paid
     
