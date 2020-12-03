@@ -1,5 +1,5 @@
 import requests
-
+from moncash.contants import API 
 from moncash.exceptions import (
                                     AuthenticationError, 
                                     AuthorizationError, 
@@ -47,23 +47,36 @@ class Http(object):
     def __init__(self, config, environment=None):
         self.config = config
         self.environment = environment or self.config.environment 
-    
 
-    def post(self):
-        pass
-    
-    def get(self):
-        pass 
-    
-    def put(self):
-        pass
-    
-    def delete(self):
-        pass 
-    
-    def _make_request(self):
-        pass
+        self.__access_token = None
 
+    def post(self, endpoint, params=None, headers_override=None):
+        headers = {
+            "Accept":"application/json",
+            "Authorization":self.__authorization_header()
+        }
+
+        if headers_override:
+            headers = headers_override
+
+        try:
+            r = requests.post(
+                    self.config.base_url()+endpoint, 
+                    params=params, 
+                    headers=headers,
+                    request_body=request_body
+                )
+        Except Exception as e:
+            print(e)
+    
+    def __get_access_token(self):
+        if self.__access_token:
+            return self.__access_token 
+        
+        params = {"scope":"read,write", "grant_type":"client_credentials"}
+        resp = self.post(self, API[self.config.version]["auth"], )
+    
+    
     
 
 

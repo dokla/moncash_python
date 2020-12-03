@@ -1,0 +1,2 @@
+class MoncashError(Exception):
+    pass 

@@ -1,0 +1,2 @@
+class ConfigurationError(MoncashError):
+    pass

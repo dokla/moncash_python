@@ -2,18 +2,17 @@ from moncash.exceptions import ConfigurationError
 from moncash.environment import Environment 
 
 class Configuration(object):
-    def __init__(self, environment=None, client_id=None, client_secret=None):
+    def __init__(self, client_id=None, client_secret=None, environment=None):
 
-        if not isinstance(client_id, int):
-            raise ConfigurationError("ConfigurationError: missing client_id or it is not an integer")
-
-        if not isinstance(client_secret, str): 
-            raise ConfigurationError("ConfigurationError: missing client_secret or it is not a string")
-
-        if not isinstance(environment, Environment):
-            raise ConfigurationError("ConfigurationError: missing value environment or it is not an environment")
-
-        self.environment = environment
         self.client_id = client_id
         self.client_secret = client_secret
+        self.environment = environment
+
+        self.api_version = "v1"
+    
+    def http(self):
+        return moncash.utils.http.Http(self)
+    
+    def base_url(self):
+        return self.environment.protocol+self.environment.host
     

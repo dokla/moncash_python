@@ -2,12 +2,19 @@ from moncash import constants
 
 class Environment(object):
     
-    def __init__(self, name, server):
+    def __init__(self, name, host):
         self.__name__ = name 
-        self.server = server 
+        self.host = host
+        self.protocol = "https://"
 
+        if name == 'Sandbox':
+            self.redirect_url = constants.SANDBOX_REDIRECT 
+        elif name == 'Production':
+            self.redirect_url = constants.PROD_REDIRECT
+        else:
+            raise EnvironmentError("Environment should be named 'Sandbox' or 'Production'")
+        
 
+Sandbox = Environment('Sandbox', constants.SANDBOX_HOST)
 
-Sandbox = Environment('Sandbox', constants.SANDBOX)
-
-Production = Environment('Production', constants.PRODUCTION)
+Production = Environment('Production', constants.PROD_HOST)
