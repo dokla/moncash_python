@@ -1,3 +1,4 @@
+import moncash
 from moncash.exceptions import ConfigurationError
 from moncash.environment import Environment 
 
@@ -11,7 +12,7 @@ class Configuration(object):
         self.api_version = "v1"
     
     def http(self):
-        return moncash.utils.http.Http(self)
+        return moncash.http.Http(self)
     
     def base_url(self):
         return self.environment.protocol+self.environment.host

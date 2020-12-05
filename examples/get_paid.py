@@ -1,19 +1,19 @@
-from moncash import MoncashGateway
+import moncash
 
-gateway = MoncashGateway(
-    client_id="xxxxxxxxxxxxxx",
-    secret_key="xxxxxxxxxxxxx",
-    environment=moncash.environment.Sandbox
-)
+moncash_gateway = moncash.Moncash(
+        client_id="xxxxxxxxxxxxxx",
+        secret_key="xxxxxxxxxxxxx",
+        environment=moncash.environment.Sandbox
+    )
 
-payment_gateway = gateway.payment
+payment_gateway = moncash_gateway.payment
 
-url = payment_gateway.create(
+get_paid_url = payment_gateway.create(
     amount="1000",
     reference="12"
 )
 
-print(url)
+print(get_paid_url)
 
-# TODO:  in your app redirect the user to the payement url to get paid
+# TODO:  in your app redirect the user to the payment url to get paid
     

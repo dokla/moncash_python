@@ -66,7 +66,7 @@ class Http(object):
                     headers=headers,
                     request_body=request_body
                 )
-        Except Exception as e:
+        except Exception as e:
             print(e)
     
     def __get_access_token(self):
