@@ -6,47 +6,46 @@ class Payment(object):
         self.gateway = gateway
         self.config = gateway.config
     
+    def __post(self, endpoint, payload):
+        return self.config.http().post(endpoint, payload)
+    
     def create(self, amount, reference):
         if amount == 0:
             raise PaymentError("Payment amount can not be zero")
         
-        
-        response = self._post(
-            {
+        response = self.__post(
+            endpoint = API[self.config.api_version]["create_payment"],
+            payload = {
                 "amount":amount,
                 "orderId":reference
-            }, 
-            API[self.config.api_version]["create_payment"]
+            } 
         )
 
-        self.url = self.config.base_url()+response.token
+        self.url = self.config.environment.redirect_url+"/Payment/Redirect?token="+response["payment_token"]["token"]
 
         return self.url
 
     
-    def find_by_ref(self, reference):
-        response = self.__post(
-            {
-                "orderId":reference
-            }, 
-            API[self.config.api_version]["get_payment_by_ref"]
-        )
+    # def find_by_ref(self, reference):
+    #     response = self.__post(
+    #         {
+    #             "orderId":reference
+    #         }, 
+    #         API[self.config.api_version]["get_payment_by_ref"]
+    #     )
 
-        return response
-
-    
-    def find_by_id(self, transactionId):
-        response = self.__post(
-            {
-                "transactionId":transactionId
-            }, 
-            API[self.config.api_version]["get_payment_by_id"]
-        )
-
-        return response
+    #     return response
 
     
-    def __post(self, data, endpoint):
-        return self.config.http().post(endpoint, data)
+    # def find_by_id(self, transactionId):
+    #     response = self.__post(
+    #         {
+    #             "transactionId":transactionId
+    #         }, 
+    #         API[self.config.api_version]["get_payment_by_id"]
+    #     )
+
+    #     return response
+
 
 

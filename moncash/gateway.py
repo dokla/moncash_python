@@ -12,7 +12,6 @@ class Moncash(object):
                 client_secret=kwargs.get("client_secret"),
                 environment=kwargs.get("environment")
             ) 
-        
         self.payment = Payment(self)
         
 
