@@ -8,9 +8,9 @@ class Environment(object):
         self.protocol = "https://"
 
         if name == 'Sandbox':
-            self.redirect_url = constants.SANDBOX_REDIRECT 
+            self.redirect_url = constants.SANDBOX_REDIRECT_URL 
         elif name == 'Production':
-            self.redirect_url = constants.PROD_REDIRECT
+            self.redirect_url = constants.PROD_REDIRECT_URL
         else:
             raise EnvironmentError("Environment should be named 'Sandbox' or 'Production'")
         
