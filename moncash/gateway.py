@@ -1,7 +1,7 @@
 from moncash.configuration import Configuration
-from moncash.payement import PaymentGateway
+from moncash.payement import Payment
 
-class MoncashGateway(object):
+class Moncash(object):
 
     def __init__(self, config=None, **kwargs):
         if isinstance(config, Configuration):
@@ -13,7 +13,7 @@ class MoncashGateway(object):
                 environment=kwargs.get("environment")
             ) 
         
-        self.payment = PaymentGateway(self)
+        self.payment = Payment(self)
         
 
     

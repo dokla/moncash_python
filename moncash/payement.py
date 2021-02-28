@@ -1,7 +1,7 @@
 from moncash.constants import API 
 from moncash.exceptions import PaymentError 
 
-class PaymentGateway(object):
+class Payment(object):
     def __init__(self, gateway):
         self.gateway = gateway
         self.config = gateway.config

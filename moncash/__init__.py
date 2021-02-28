@@ -15,7 +15,7 @@ the MonCash API for applications written in Python
 """
 
 
-from moncash.gateway import MoncashGateway
+from moncash.gateway import Moncash
 from moncash.configuration import Configuration 
 from moncash.environment import Environment
 from moncash.version import version
