@@ -1,4 +1,4 @@
-from constants import API 
+from moncash.constants import API 
 from moncash.exceptions import PaymentError 
 
 class PaymentGateway(object):
