@@ -13,9 +13,5 @@ get_paid_url = gateway.payment.create(
 
 print(get_paid_url)
 
-payment = gateway.payment.get_by_ref(12)
-
-print(payment)
-
 # TODO:  in your app redirect the user to the payment url to get paid
     
