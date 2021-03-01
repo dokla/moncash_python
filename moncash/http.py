@@ -107,7 +107,10 @@ class Http(object):
         except Exception as e:
             pass
 
-        resp_json = json.loads(resp.content.decode('utf-8'))
+        try:
+            resp_json = json.loads(resp.content.decode('utf-8'))
+        except Exception as e:
+            raise Exception("Unexpected Error")
 
         if self.is_error_status(resp.status_code):
             self.raise_exception_from_status(resp.status_code)

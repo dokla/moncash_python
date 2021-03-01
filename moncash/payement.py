@@ -26,23 +26,23 @@ class Payment(object):
         return self.url
 
     
-    # def find_by_ref(self, reference):
-    #     response = self.__post(
-    #         {
-    #             "orderId":reference
-    #         }, 
-    #         API[self.config.api_version]["get_payment_by_ref"]
-    #     )
+    def get_by_ref(self, reference):
+        response = self.__post(
+            endpoint=API[self.config.api_version]["get_payment_by_ref"],
+            payload={
+                    "orderId":reference
+                }
+        )
 
-    #     return response
+        return response
 
     
-    # def find_by_id(self, transactionId):
+    # def get_by_id(self, transactionId):
     #     response = self.__post(
-    #         {
-    #             "transactionId":transactionId
-    #         }, 
-    #         API[self.config.api_version]["get_payment_by_id"]
+    #         endpoint=API[self.config.api_version]["get_payment_by_id"],
+    #         payload={
+    #                 "transactionId":transactionId
+    #             }
     #     )
 
     #     return response
