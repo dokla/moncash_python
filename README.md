@@ -81,11 +81,11 @@ The response should be something like:
 
 ```json
     {
-        'reference': '13', 
-        'transaction_id': '2160048483', 
-        'cost': 250, 
-        'message': 'successful', 
-        'payer': '50936050083'
+        "reference": "13", 
+        "transaction_id": "2160048483", 
+        "cost": "250", 
+        "message": "successful", 
+        "payer": "50936050083"
     }
 ```
 
