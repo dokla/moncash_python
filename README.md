@@ -20,7 +20,7 @@ Simple python wrapper to perform and retrieve payment to moncash api with python
 
 import moncash 
 
-import MoncashError
+from moncash.exceptions import MoncashError
 
 gateway = moncash.Moncash(
     client_id="xxxxxxxx",
@@ -50,7 +50,7 @@ print(get_paid_url)
 
 import moncash 
 
-import MoncashError, NotFoundError
+from moncash.exceptions import MoncashError, NotFoundError
 
 gateway = moncash.Moncash(
     client_id="xxxxxxxx",
