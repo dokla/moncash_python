@@ -20,7 +20,7 @@ Simple python wrapper to perform and retrieve payment to moncash api with python
 
     import moncash 
 
-    from moncash.exceptions import MoncashError
+     import MoncashError
 
     gateway = moncash.Moncash(
         client_id="xxxxxxxx",
@@ -50,7 +50,7 @@ Simple python wrapper to perform and retrieve payment to moncash api with python
 
     import moncash 
 
-    from moncash.exceptions import MoncashError, NotFoundError
+     import MoncashError, NotFoundError
 
     gateway = moncash.Moncash(
         client_id="xxxxxxxx",
@@ -89,4 +89,28 @@ The response should be something like for the transactions querying status:
     }
 ```
 
+## Exceptions 
+
+> A good application is an application where you care about errors
+> (Madsen Servius)
+
+Exhaustive list of the Exceptions moncash_python can raised:
+
+MoncashError 
+ConfigurationError 
+PaymentError
+AuthenticationError 
+AuthorizationError 
+GatewayTimeoutError 
+RequestTimeoutError
+ServerError
+ServiceUnavailableError
+TooManyRequestsError
+UnexpectedError
+UpgradeRequiredError
+NotFoundError
+
+To import them in you code you have to write:
+
+    from moncash.exceptions import _NameOfTheException_
 
