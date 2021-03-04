@@ -34,10 +34,7 @@ Simple python wrapper to perform and retrieve payment to moncash api with python
     # It can be any kind of error (AuthenticationError, ServerError, etc...)
     # but all errors are inherited from MoncasError
     try:
-        get_paid_url = gateway.payment.create(
-            amount=250,
-            reference=10
-        )
+        get_paid_url = gateway.payment.create(amount=250, reference=10)
     except MoncashError:
         print("Unexpected error...")
     
