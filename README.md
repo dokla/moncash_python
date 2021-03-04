@@ -91,10 +91,10 @@ The response should be something like for the transactions querying status:
 
 ## Exceptions 
 
-> A good application is an application where you are aware about errors
+> A good application is an application where you care about errors
 > (Madsen Servius)
 
-Exhaustive list of the Exceptions moncash_python can raised:
+Exhaustive list of the Exceptions:
 
 * MoncashError 
 * ConfigurationError 
@@ -118,4 +118,9 @@ Exhaustive list of the Exceptions moncash_python can raised:
 To import them in you code you have to write:
 
     from moncash.exceptions import _NameOfTheException_
+
+
+## Authors
+
+Madsen Servius (madsen@dokla.ht)
 
