@@ -1,5 +1,5 @@
 from moncash.constants import API 
-from moncash.exceptions import PaymentError, TransfertError
+from moncash.exceptions import PaymentError
 
 class Payment(object):
     def __init__(self, gateway):
