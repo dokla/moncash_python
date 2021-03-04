@@ -1,5 +1,5 @@
 from moncash.constants import API 
-from moncash.exceptions import PaymentError 
+from moncash.exceptions import PaymentError, TransfertError
 
 class Payment(object):
     def __init__(self, gateway):
@@ -25,7 +25,10 @@ class Payment(object):
 
         return self.url
 
-    
+    # def transfert(self, amount, receiver, description):
+    #     if amount =< 0:
+    #         raise PaymentError("Amount cannot be null or negative")
+        
     def get_by_ref(self, reference):
         response = self.__post(
             endpoint=API[self.config.api_version]["get_payment_by_ref"],

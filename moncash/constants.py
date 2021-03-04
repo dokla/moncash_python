@@ -12,6 +12,7 @@ API = {
     "v1": {
         "auth": "/oauth/token",
         "create_payment": "/v1/CreatePayment",
+        "transfert":"v1/Transfert",
         "get_payment_by_id": "/v1/RetrieveTransactionPayment",
         "get_payment_by_ref": "/v1/RetrieveOrderPayment"
     }
