@@ -3,11 +3,11 @@ import moncash
 gateway = moncash.Moncash(
         client_id="26c0da72fb39f2219066e793663e133a",
         client_secret="eDW4R0KpN8UYQheoEX_OBwAztXqewARKbKevjwdkzm1gLlGGouzdv1znWpLNhuJ_",
-        environment=moncash.environment.Sandbox
+        environment=moncash.environment.Production
     )
 
 get_paid_url = gateway.payment.create(
-    amount=500,
+    amount=1250,
     reference=12
 )
 

@@ -2,13 +2,15 @@ from moncash.exceptions.moncash_error import MoncashError
 from moncash.exceptions.configuration_error import ConfigurationError 
 from moncash.exceptions.payment_error import PaymentError
 
-from moncash.exceptions.http_error import AuthenticationError
-from moncash.exceptions.http_error import AuthorizationError 
-from moncash.exceptions.http_error import NotFoundError
-from moncash.exceptions.http_error import RequestTimeoutError
-from moncash.exceptions.http_error import UpgradeRequiredError
-from moncash.exceptions.http_error import TooManyRequestsError
-from moncash.exceptions.http_error import ServerError
-from moncash.exceptions.http_error import ServiceUnavailableError
-from moncash.exceptions.http_error import GatewayTimeoutError
-from moncash.exceptions.http_error import UnexpectedError
+from moncash.exceptions.authentication_error import AuthenticationError 
+from moncash.exceptions.authorization_error import AuthorizationError 
+from moncash.exceptions.gateway_timeout_error import GatewayTimeoutError 
+from moncash.exceptions.request_timeout_error import RequestTimeoutError
+from moncash.exceptions.server_error import ServerError
+from moncash.exceptions.service_unavailable_error import ServiceUnavailableError
+from moncash.exceptions.too_many_requests_error import TooManyRequestsError
+from moncash.exceptions.unexpected_error import UnexpectedError
+from moncash.exceptions.upgrade_required_error import UpgradeRequiredError
+from moncash.exceptions.not_found_error import NotFoundError
+
+from moncash.exceptions.http import *

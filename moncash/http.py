@@ -4,17 +4,23 @@ from base64 import encodebytes
 import json 
 
 from moncash.constants import API 
-from moncash.exceptions import (
-                                    AuthenticationError, 
-                                    AuthorizationError, 
-                                    NotFoundError, 
-                                    RequestTimeoutError, 
-                                    UpgradeRequiredError, 
+
+from moncash.exceptions import  (
+                                    AuthenticationError,
+                                    AuthorizationError,
+                                    GatewayTimeoutError,
+                                    ConnectionError,
+                                    InvalidResponseError,
+                                    ConnectTimeoutError,
+                                    ReadTimeoutError,
+                                    TimeoutError,
+                                    NotFoundError,
+                                    RequestTimeoutError,
+                                    ServerError,
+                                    ServiceUnavailableError,
                                     TooManyRequestsError,
-                                    ServerError, 
-                                    ServiceUnavailableError, 
-                                    GatewayTimeoutError, 
-                                    UnexpectedError
+                                    UnexpectedError,
+                                    UpgradeRequiredError
                                 )
 
 
@@ -46,6 +52,20 @@ class Http(object):
             raise GatewayTimeoutError()
         else:
             raise UnexpectedError("Unexpected HTTP_RESPONSE " + str(status))
+    
+    def handle_exception(self, exception):
+        if isinstance(exception, requests.exceptions.ReadTimeout):
+            raise ReadTimeoutError(exception)
+        elif isinstance(exception, requests.exceptions.ConnectTimeout):
+            raise ConnectTimeoutError(exception)
+        elif isinstance(exception, requests.exceptions.ConnectionError):
+            raise ConnectionError(exception)
+        elif isinstance(exception, requests.exceptions.HTTPError):
+            raise InvalidResponseError(exception)
+        elif isinstance(exception, requests.exceptions.Timeout):
+            raise TimeoutError(exception)
+        else:
+            raise UnexpectedError(exception)
 
 
     def __init__(self, config, environment=None):
@@ -96,7 +116,7 @@ class Http(object):
                 "Content-Type":"application/json",
                 "Authorization":self.__authorization_header()
             }
-        
+
         try:
             resp = requests.post(
                     self.config.base_url()+endpoint, 
@@ -105,12 +125,9 @@ class Http(object):
                     data=json.dumps(payload)
                 )
         except Exception as e:
-            pass
+            self.handle_exception(e)
 
-        try:
-            resp_json = json.loads(resp.content.decode('utf-8'))
-        except Exception as e:
-            raise Exception("Unexpected Error")
+        resp_json = json.loads(resp.content.decode('utf-8'))
 
         if self.is_error_status(resp.status_code):
             self.raise_exception_from_status(resp.status_code)

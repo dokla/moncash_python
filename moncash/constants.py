@@ -3,7 +3,7 @@ BASE = "moncashbutton.digicelgroup.com"
 
 SANDBOX_HOST = f"sandbox.{BASE}/Api"
 
-PROD_HOST = f"api.{BASE}"
+PROD_HOST = f"{BASE}/Api"
 
 SANDBOX_REDIRECT_URL = f"https://sandbox.{BASE}/Moncash-middleware"
 PROD_REDIRECT_URL = f"https://{BASE}/Moncash-middleware"
