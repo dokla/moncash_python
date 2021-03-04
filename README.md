@@ -26,13 +26,12 @@ Simple python wrapper to perform and retrieve payment to moncash api with python
     gateway = moncash.Moncash(
         client_id="xxxxxxxx",
         client_secret="xxxxxxxx",
-        environment=moncash.environment.Sandbox
         # in production: environment = moncash.environment.Production
+        environment=moncash.environment.Sandbox
     )
 
-    # You should handle error
-    # It can be any kind of error
-    # AuthenticationError, ServerError, etc...
+    # YOU SHOULD HANDLE ERROR
+    # It can be any kind of error (AuthenticationError, ServerError, etc...)
     # but all errors are inherited from MoncasError
     try:
         get_paid_url = gateway.payment.create(
