@@ -91,7 +91,7 @@ The response should be something like for the transactions querying status:
 
 ## Exceptions 
 
-> A good application is an application where you care about errors
+> A good application is an application where you are aware about errors
 > (Madsen Servius)
 
 Exhaustive list of the Exceptions moncash_python can raised:
