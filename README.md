@@ -96,19 +96,24 @@ The response should be something like for the transactions querying status:
 
 Exhaustive list of the Exceptions moncash_python can raised:
 
-MoncashError 
-ConfigurationError 
-PaymentError
-AuthenticationError 
-AuthorizationError 
-GatewayTimeoutError 
-RequestTimeoutError
-ServerError
-ServiceUnavailableError
-TooManyRequestsError
-UnexpectedError
-UpgradeRequiredError
-NotFoundError
+* MoncashError 
+* ConfigurationError 
+* PaymentError
+* AuthenticationError 
+* AuthorizationError 
+* GatewayTimeoutError 
+* RequestTimeoutError
+* ServerError
+* ServiceUnavailableError
+* TooManyRequestsError
+* UnexpectedError
+* UpgradeRequiredError
+* NotFoundError
+* ConnectionError 
+* InvalidResponseError 
+* TimeoutError
+* ConnectTimeoutError
+* ReadTimeoutError
 
 To import them in you code you have to write:
 
