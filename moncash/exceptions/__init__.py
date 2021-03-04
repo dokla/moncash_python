@@ -14,5 +14,3 @@ from moncash.exceptions.upgrade_required_error import UpgradeRequiredError
 from moncash.exceptions.not_found_error import NotFoundError
 
 from moncash.exceptions.http import *
-
-from moncash.exceptions.phone_validation import DigicelPhoneValidationError

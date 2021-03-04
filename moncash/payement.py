@@ -24,10 +24,6 @@ class Payment(object):
         self.url = self.config.environment.redirect_url+"/Payment/Redirect?token="+response["payment_token"]["token"]
 
         return self.url
-
-    # def transfert(self, amount, receiver, description):
-    #     if amount =< 0:
-    #         raise PaymentError("Amount cannot be null or negative")
         
     def get_by_ref(self, reference):
         response = self.__post(
@@ -37,9 +33,8 @@ class Payment(object):
                 }
         )
 
-        return response
+        return response['payment']
 
-    
     def get_by_id(self, transactionId):
         response = self.__post(
             endpoint=API[self.config.api_version]["get_payment_by_id"],
@@ -48,7 +43,7 @@ class Payment(object):
                 }
         )
 
-        return response
+        return response['payment']
 
 
 
