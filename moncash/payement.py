@@ -37,15 +37,15 @@ class Payment(object):
         return response
 
     
-    # def get_by_id(self, transactionId):
-    #     response = self.__post(
-    #         endpoint=API[self.config.api_version]["get_payment_by_id"],
-    #         payload={
-    #                 "transactionId":transactionId
-    #             }
-    #     )
+    def get_by_id(self, transactionId):
+        response = self.__post(
+            endpoint=API[self.config.api_version]["get_payment_by_id"],
+            payload={
+                    "transactionId":transactionId
+                }
+        )
 
-    #     return response
+        return response
 
 
 

@@ -6,12 +6,17 @@ gateway = moncash.Moncash(
         environment=moncash.environment.Sandbox
     )
 
-get_paid_url = gateway.payment.create(
-    amount=1250,
-    reference=12
-)
+# get_paid_url = gateway.payment.create(
+#     amount=2250,
+#     reference=14
+# )
 
-print(get_paid_url)
+# print(get_paid_url)
+
+resp = gateway.payment.get_by_ref(13)
+
+print(resp)
+
 
 # TODO:  in your app redirect the user to the payment url to get paid
     
