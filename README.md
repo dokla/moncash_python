@@ -77,7 +77,7 @@ Simple python wrapper to perform and retrieve payment to moncash api with python
     # TODO: redirect the user to get_paid_url
 ```
 
-The response should be something like:
+The response should be something like for the transactions querying status:
 
 ```json
     {
