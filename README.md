@@ -17,6 +17,32 @@ Simple python wrapper to perform and retrieve payment to moncash api with python
 ```
 
 ### Receive money from a mobile account 
+```python
+
+    import moncash 
+    from moncash.exceptions import MoncashError 
+
+    gateway = moncash.Moncash(
+        client_id="xxxxxxxx",
+        client_secret="xxxxxxxx",
+        environment=moncash.environment.Sandbox
+    )
+
+    try:
+        get_paid_url = gateway.payment.create(
+            amount=250,
+            reference=10
+        )
+    except MoncashError:
+        # This error can be any kind of error
+        # AuthenticationError, ServerError, etc...
+        # You should handle error
+        print("Unexpected error...")
+    
+    print(get_paid_url)
+
+    # TODO: redirect the user to get_paid_url
+```
 
 ### Send money from business account to mobile account 
 

@@ -1,6 +1,6 @@
 import moncash
 
-from moncash.exceptions import NotFoundError
+from moncash.exceptions import MoncashError
 
 gateway = moncash.Moncash(
         client_id="26c0da72fb39f2219066e793663e133a",
@@ -17,8 +17,8 @@ gateway = moncash.Moncash(
 
 try:
     resp = gateway.payment.get_by_ref(483)
-except NotFoundError:
-    print("On a pas trouvé ce paiemetn")
+except MoncashError:
+    print("Erreur")
 
 #print(resp)
 
