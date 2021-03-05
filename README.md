@@ -20,19 +20,16 @@ Simple python wrapper to perform and retrieve payment to moncash api with python
 
 import moncash 
 
-from moncash.exceptions import MoncashError
-
 gateway = moncash.Moncash(
     client_id="xxxxxxxx",
     client_secret="xxxxxxxx",
-    # in production: environment = moncash.environment.Production
     environment=moncash.environment.Sandbox
 )
 
-# YOU SHOULD HANDLE ERROR
+# you should handle error
 try:
     get_paid_url = gateway.payment.create(amount=250, reference=10)
-except MoncashError:
+except moncash.exceptions.MoncashError:
     get_paid_url = None
     print("Unexpected error...")
     
@@ -46,38 +43,43 @@ print(get_paid_url)
 
 #### Query the transactions status
 
+Grab transaction with the reference
+
 ```python
 
-import moncash 
+....
 
-from moncash.exceptions import MoncashError, NotFoundError
-
-gateway = moncash.Moncash(
-    client_id="xxxxxxxx",
-    client_secret="xxxxxxxx",
-    # in production: environment = moncash.environment.Production
-    environment=moncash.environment.Sandbox
-)
-
-# YOU SHOULD HANDLE ERROR
+# you should handle error
 try:
-    # To retrieve the payment with the transaction Id 
-    # you should use: gateway.payment.get_by_id(id)
     response = gateway.payment.get_by_ref(reference=10)
-except NotFoundError:
+except moncash.exceptions.NotFoundError:
     response = None
-    print("We did found this transaction... not valid")
-except MoncashError:
+    print("We didnt found this transaction... It is not valid")
+except moncash.exceptions.MoncashError:
     response = None
     print("Unexpected error...")
-    
 
-print(response)
-
-# TODO: redirect the user to get_paid_url
 ```
 
-The response should be something like for the transactions querying status:
+Grab transaction with the transactionId
+
+```python
+
+....
+
+# you should handle error
+try:
+    response = gateway.payment.get_by_id(transactionId=10)
+except moncash.exceptions.NotFoundError:
+    response = None
+    print("We didnt found this transaction... It is not valid")
+except moncash.exceptions.MoncashError:
+    response = None
+    print("Unexpected error...")
+
+```
+
+The response should be something like for the transactions querying status (whether with reference or the id):
 
 ```json
 {
@@ -117,7 +119,7 @@ Exhaustive list of the Exceptions:
 
 To import them in you code you have to write:
 
-    from moncash.exceptions import _NameOfTheException_
+    from moncash.exceptions import NameOfTheExceptionCatched
 
 
 ## Authors
