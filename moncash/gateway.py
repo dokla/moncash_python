@@ -1,5 +1,22 @@
+
+"""
+                                  _     
+  /\/\   ___  _ __   ___ __ _ ___| |__  
+ /    \ / _ \| '_ \ / __/ _` / __| '_ \ 
+/ /\/\ \ (_) | | | | (_| (_| \__ \ | | |
+\/    \/\___/|_| |_|\___\__,_|___/_| |_|
+                                        
+
+This is an unofficial wrapper providing convenient access to 
+the MonCash API for applications written in Python
+
+:copyright: (c) 2020-2022 by DOKLA.
+:license: Apache 2.0, see LICENSE for more details.
+"""
+
+
 from moncash.configuration import Configuration
-from moncash.payement import Payment
+from moncash.payment import Payment
 
 class Moncash(object):
 
@@ -15,6 +32,8 @@ class Moncash(object):
         self.payment = Payment(self)
         
 
+if __name__ == '__main__':
+    print("__package__")
     
         
 

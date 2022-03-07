@@ -10,12 +10,10 @@
 This is an unofficial wrapper providing convenient access to 
 the MonCash API for applications written in Python
 
-:copyright: (c) 2020 by Madsen Servius.
+:copyright: (c) 2020 by DOKLA.
 :license: Apache 2.0, see LICENSE for more details.
 """
 
-
-from moncash.gateway import Moncash
-from moncash.configuration import Configuration 
-from moncash.environment import Environment
-from moncash.version import version
+from moncash.gateway import Moncash 
+from moncash.configuration import Configuration
+from moncash.environment import Environment 

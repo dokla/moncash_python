@@ -1,6 +1,4 @@
 from moncash.http import Http
-from moncash.exceptions import ConfigurationError
-from moncash.environment import Environment 
 
 class Configuration(object):
     def __init__(self, client_id=None, client_secret=None, environment=None):

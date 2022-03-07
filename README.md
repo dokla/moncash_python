@@ -1,9 +1,12 @@
-# moncash_python
+[![moncash](https://sandbox.moncashbutton.digicelgroup.com/Moncash-middleware/resources/assets/images/MC_button.png)](https://sandbox.moncashbutton.digicelgroup.com/)
+
+# Digicel Moncash API SDK for Python
 Simple python wrapper to perform and retrieve payment to moncash api with python
 
 ## Features
-* Receive money from a mobile account to business account 
-* Query transaction status
+- Receive money from a mobile account to business account 
+- Query transaction status
+- ~~Transfert money~~
 
 ## Quickstart 
 
@@ -26,7 +29,6 @@ gateway = moncash.Moncash(
     environment=moncash.environment.Sandbox
 )
 
-# you should handle error
 try:
     get_paid_url = gateway.payment.create(amount=250, reference=10)
 except moncash.exceptions.MoncashError:
@@ -41,15 +43,10 @@ print(get_paid_url)
 
 ### Query transactions status
 
-#### Query the transactions status
-
 Grab transaction with the reference
 
 ```python
 
-....
-
-# you should handle error
 try:
     response = gateway.payment.get_by_ref(reference=10)
 except moncash.exceptions.NotFoundError:
@@ -91,7 +88,7 @@ The response should be something like for the transactions querying status (whet
 }
 ```
 
-## Exceptions 
+## Error handling 
 
 > A good application is an application where you care about errors
 > (Madsen Servius)
@@ -125,4 +122,10 @@ To import them in you code you have to write:
 ## Authors
 
 Madsen Servius (madsen@dokla.ht)
+
+## Useful links
+- [NPM package link](https://www.npmjs.com/package/moncash)
+- [Digicel Moncash API Dashboard](https://sandbox.moncashbutton.digicelgroup.com)
+- [RestAPI_MonCash_doc.pdf](https://sandbox.moncashbutton.digicelgroup.com/Moncash-business/resources/doc/RestAPI_MonCash_doc.pdf)
+- [Old Moncash SDK for Python](https://github.com/Lemayzeur/moncashify_sdk)
 
