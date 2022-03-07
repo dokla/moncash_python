@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='moncash',
-    version='1.1.0',
+    version='1.0.3',
     description='Simple python wrapper to perform and retrieve payment to Digicel Moncash with Python',
     author="Dokla",
     author_email="support@dokla.ht",
