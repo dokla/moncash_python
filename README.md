@@ -1,4 +1,4 @@
-[![moncash](https://sandbox.moncashbutton.digicelgroup.com/Moncash-middleware/resources/assets/images/MC_button.png)](https://sandbox.moncashbutton.digicelgroup.com/){ width=50% }
+[![moncash](https://sandbox.moncashbutton.digicelgroup.com/Moncash-middleware/resources/assets/images/MC_button.png)](https://sandbox.moncashbutton.digicelgroup.com/){width=50%}
 
 # Digicel Moncash API SDK for Python
 Simple python wrapper to perform and retrieve payment to moncash api with python
