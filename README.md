@@ -122,7 +122,7 @@ To import them in you code you have to write:
 Madsen Servius (madsen@dokla.ht)
 
 ## Useful links
-- [NPM package link](https://www.npmjs.com/package/moncash)
+- [PyPI package link](https://pypi.org/project/moncash/)
 - [Digicel Moncash API Dashboard](https://sandbox.moncashbutton.digicelgroup.com)
 - [RestAPI_MonCash_doc.pdf](https://sandbox.moncashbutton.digicelgroup.com/Moncash-business/resources/doc/RestAPI_MonCash_doc.pdf)
 - [Old Moncash SDK for Python](https://github.com/Lemayzeur/moncashify_sdk)
