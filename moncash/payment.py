@@ -9,7 +9,7 @@ class Payment(object):
     def __post(self, endpoint, payload):
         return self.config.http().post(endpoint, payload)
     
-    def capture(self, amount, reference):
+    def create(self, amount, reference):
         if amount < 1:
             raise PaymentError("Payment amount can't be zero")
         elif amount > 75000:
