@@ -6,7 +6,7 @@ Simple python wrapper to perform and retrieve payment to moncash api with python
 ## Features
 - Receive money from a mobile account to business account 
 - Query transaction status
-- ~~Transfert money~~
+- Transfert money
 
 ## Quickstart 
 
@@ -30,7 +30,7 @@ gateway = moncash.Moncash(
 )
 
 try:
-    get_paid_url = gateway.payment.create(amount=250, reference=10)
+    get_paid_url = gateway.payment.capture(amount=250, reference=10)
 except moncash.exceptions.MoncashError:
     get_paid_url = None
     print("Unexpected error...")
@@ -48,12 +48,12 @@ Grab transaction with the reference
 ```python
 
 try:
-    response = gateway.payment.get_by_ref(reference=10)
+    transaction = gateway.payment.get_by_ref(reference=10)
 except moncash.exceptions.NotFoundError:
-    response = None
+    transaction = None
     print("We didnt found this transaction... It is not valid")
 except moncash.exceptions.MoncashError:
-    response = None
+    transaction = None
     print("Unexpected error...")
 
 ```
@@ -64,12 +64,12 @@ Grab transaction with the transactionId
 
 # you should handle error
 try:
-    response = gateway.payment.get_by_id(transactionId=10)
+    transaction = gateway.payment.get_by_id(transactionId=10)
 except moncash.exceptions.NotFoundError:
-    response = None
+    transaction = None
     print("We didnt found this transaction... It is not valid")
 except moncash.exceptions.MoncashError:
-    response = None
+    transaction = None
     print("Unexpected error...")
 
 ```

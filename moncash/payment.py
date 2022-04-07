@@ -9,9 +9,11 @@ class Payment(object):
     def __post(self, endpoint, payload):
         return self.config.http().post(endpoint, payload)
     
-    def create(self, amount, reference):
-        if amount == 0:
-            raise PaymentError("Payment amount can not be zero")
+    def capture(self, amount, reference):
+        if amount < 1:
+            raise PaymentError("Payment amount can't be zero")
+        elif amount > 75000:
+            raise PaymentError("Payment amount can't exceed 75000 HTG")
         
         response = self.__post(
             endpoint = API[self.config.api_version]["create_payment"],
@@ -32,7 +34,7 @@ class Payment(object):
                     "orderId":reference
                 }
         )
-
+    
         return response['payment']
 
     def get_by_id(self, transactionId):

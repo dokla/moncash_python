@@ -11,7 +11,7 @@ This is an unofficial wrapper providing convenient access to
 the MonCash API for applications written in Python
 
 :copyright: (c) 2020-2022 by DOKLA.
-:license: Apache 2.0, see LICENSE for more details.
+:license: MIT, see LICENSE for more details.
 """
 
 
@@ -19,7 +19,9 @@ from moncash.configuration import Configuration
 from moncash.payment import Payment
 
 class Moncash(object):
-
+    """
+    """
+    
     def __init__(self, config=None, **kwargs):
         if isinstance(config, Configuration):
             self.config = config 
@@ -32,9 +34,6 @@ class Moncash(object):
         self.payment = Payment(self)
         
 
-if __name__ == '__main__':
-    print("__package__")
-    
         
 
 
