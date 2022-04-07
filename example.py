@@ -1,8 +1,8 @@
 import moncash
 
 gateway = moncash.Moncash(
-    client_id="fa36258cf6ff7f0e82ba52a859808382",
-    client_secret="PAZORCbzs28eE2sQdWQ9ynAAk-inYP-uSWILraU3CWRyO1mnbb050T3j_rUm8cRp",
+    client_id="xxxxxxxxxxxxxxxx",
+    client_secret="xxxxxxxxxxxx",
     environment=moncash.environment.Production
 )
 

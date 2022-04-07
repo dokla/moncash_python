@@ -1,4 +1,4 @@
-## 2.0.0
+## 1.1.0
 * Handle the error of maximum that can be paid through moncash
 * Documentation with Sphinx
 * Unit test and integration test
