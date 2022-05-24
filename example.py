@@ -9,7 +9,7 @@ gateway = moncash.Moncash(
 get_paid_url = None 
 
 try:
-    get_paid_url = gateway.payment.capture(amount=250, reference=78)
+    get_paid_url = gateway.payment.create(amount=250, reference=78)
 except moncash.exceptions.MoncashError as err:
     print(err)
 
